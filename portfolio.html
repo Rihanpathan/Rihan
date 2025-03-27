@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rihan Pathan | Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #fff;
+            text-align: center;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+        nav {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 15px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 0;
+        }
+        nav ul li a {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+            padding: 10px;
+            transition: 0.3s ease-in-out;
+        }
+        nav ul li a:hover {
+            color: #ffcc00;
+        }
+        .hero {
+            padding: 150px 20px 100px;
+            background: rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+        .hero p {
+            font-size: 22px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background: #ffcc00;
+            color: #000;
+            padding: 12px 25px;
+            margin: 20px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.3s ease-in-out, background 0.3s;
+        }
+        .btn:hover {
+            background: #ff9900;
+            transform: scale(1.1);
+        }
+        .section {
+            padding: 80px 20px;
+            margin: auto;
+            width: 80%;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            margin-top: 100px;
+            transform: translateY(50px);
+            opacity: 0;
+            transition: all 0.8s ease-in-out;
+        }
+        .section.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        .project {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            margin: 20px auto;
+            width: 50%;
+            border-radius: 10px;
+            transition: transform 0.3s ease-in-out, background 0.3s;
+        }
+        .project:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.05);
+        }
+        .contact-links a {
+            font-size: 18px;
+            font-weight: 600;
+            color: #ffcc00;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+        .contact-links a:hover {
+            color: #ff9900;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="hero">
+        <h1>Rihan Pathan</h1>
+        <p>Computer Science Student | AI & NLP Enthusiast | Embedded Systems Developer</p>
+    </section>
+
+    <section class="section" id="about">
+        <h2>About Me</h2>
+        <p>I am a passionate Computer Science student with a deep interest in AI, NLP, and Embedded Systems.</p>
+        <p>Currently developing skills in Python, C++, and DSA while gaining experience in Embedded Development.</p>
+    </section>
+
+    <section class="section" id="projects">
+        <h2>Projects</h2>
+        <div class="project">
+            <h3>Text Summarization using NLP</h3>
+            <p>Developed a text summarizer using SpaCy and Hugging Face to extract key information.</p>
+        </div>
+        <div class="project">
+            <h3>Basic File Management System</h3>
+            <p>Created an automated system using Python to organize and categorize files efficiently.</p>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2>Contact Me</h2>
+        <p class="contact-links">Email: <a href="mailto:rihanpathan1320@gmail.com">rihanpathan1320@gmail.com</a></p>
+        <p class="contact-links">LinkedIn: <a href="https://linkedin.com/in/rihan-pathan" target="_blank">linkedin.com/in/rihan-pathan</a></p>
+        <p class="contact-links">GitHub: <a href="https://github.com/rihanpathan" target="_blank">github.com/rihanpathan</a></p>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = document.querySelectorAll(".section");
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("show");
+                    }
+                });
+            }, { threshold: 0.3 });
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
